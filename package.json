@@ -1,7 +1,7 @@
 {
   "name": "viz",
   "version": "1.0.0",
-  "description": "viz retrieves and plays music videos with your music",
+  "description": "viz - music video box. retrieves and plays music videos with your music",
   "main": "index.js",
   "author": "Chris Bitsakis",
   "license": "MIT",
