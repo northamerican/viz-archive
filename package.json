@@ -1,0 +1,14 @@
+{
+  "name": "viz",
+  "version": "1.0.0",
+  "description": "viz retrieves and plays music videos with your music",
+  "main": "index.js",
+  "author": "Chris Bitsakis",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "jxa": "^2.0.3",
+    "osa2": "^0.2.3",
+    "youtube-dl": "^1.12.2"
+  }
+}
