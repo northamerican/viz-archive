@@ -10,5 +10,8 @@
     "jxa": "^2.0.3",
     "osa2": "^0.2.3",
     "youtube-dl": "^1.12.2"
+  },
+  "scripts": {
+    "start": "node src/index.js"
   }
 }
