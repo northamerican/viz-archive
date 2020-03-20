@@ -1,17 +1,52 @@
 {
   "name": "viz",
-  "version": "1.0.0",
-  "description": "viz - music video box. retrieves and plays music videos with your music",
-  "main": "index.js",
-  "author": "Chris Bitsakis",
-  "license": "MIT",
-  "dependencies": {
-    "axios": "^0.18.0",
-    "jxa": "^2.0.3",
-    "osa2": "^0.2.3",
-    "youtube-dl": "^1.12.2"
-  },
+  "version": "0.0.1",
+  "description": "music video box",
+  "main": "./dist/main/index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "dev": "node .electron-nuxt/check-engines.js && cross-env-shell NODE_ENV=development node .electron-nuxt/index.js",
+    "build": "node .electron-nuxt/check-engines.js && cross-env-shell NODE_ENV=production node .electron-nuxt/index.js",
+    "test": "",
+    "lint": "node_modules/.bin/eslint --ext .js,.vue,.ts -f ./node_modules/eslint-friendly-formatter ./src",
+    "lint:fix": "yarn run lint -- --fix",
+    "preinstall": "node .electron-nuxt/check-engines.js",
+    "postinstall": "electron-builder install-app-deps & yarn run lint:fix"
+  },
+  "keywords": [],
+  "author": "Chris Bitsakis <c.bitsakis@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/michalzaq12/electron-nuxt/blob/master/README.md",
+  "engines" : {
+    "node" : ">=12.13.0"
+  },
+  "resolutions": {
+    "@types/node": "12.12.6"
+  },
+  "devDependencies": {
+    "@xpda-dev/core": "^0.1.5",
+    "@xpda-dev/electron-launcher": "^0.1.1",
+    "@xpda-dev/electron-builder": "^0.1.1",
+    "@xpda-dev/webpack-step": "^0.1.2",
+    "deepmerge": "4.2.2",
+    "@fortawesome/fontawesome-free": "5.12.1",
+    "browser-env": "3.3.0",
+    "cross-env": "7.0.2",
+    "electron": "8.1.1",
+    "electron-builder": "22.4.1",
+    "electron-debug": "3.0.1",
+    "eslint": "5.16.0",
+    
+    "eslint-friendly-formatter": "4.0.1",
+    "eslint-loader": "3.0.3",
+    
+    "@nuxtjs/eslint-config-typescript": "1.0.2",
+    "nuxt": "2.11.0",
+    "typescript": "3.7.5",
+    "@nuxt/typescript-build": "0.5.8",
+    "node-sass": "4.13.1",
+    "sass-loader": "8.0.2",
+    "vue-devtools": "5.1.3",
+    "webpack": "4.42.0",
+    "webpack-node-externals": "1.7.2"
   }
 }

@@ -3,18 +3,24 @@
 
 retrieves and plays music videos with your music.
 
+#### Build Setup
 
-## how to use
+``` bash
+# install dependencies
+yarn install
 
-very preliminary version. requires itunes and iina media player.
+# serve app with hot reload
+yarn run dev
 
-with a song playing in itunes, run viz (`src/index.js`) with node.
-viz will search youtube for the song and open its music video in iina. 
+# build electron application for production
+yarn run build
 
-## goals
 
-i'd like to have viz running as a standalone app and automatically launch a video player of the user's choice. in the video player will be the song's music video playing on mute in sync with the song if feasible. 
+# lint all JS/Vue component files in `src/`
+yarn run lint
 
-this would be good for parties. leverage the selection of spotify or itunes and the music videos available on youtube. 
+```
 
-fallback videos can be provided for songs with no music video. 
+---
+
+This project was generated with [electron-nuxt](https://github.com/michalzaq12/electron-nuxt) v1.5.0 using [vue-cli](https://github.com/vuejs/vue-cli). Documentation about the original structure can be found [here](https://github.com/michalzaq12/electron-nuxt/blob/master/README.md).
