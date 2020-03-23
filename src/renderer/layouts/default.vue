@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-header />
+    <!-- <app-header /> -->
     <nuxt />
   </div>
 </template>
@@ -13,7 +13,9 @@ export default {
 </script>
 
 <style>
-body {
+html, body {
   margin: 0 !important;
+  background: black;
+  color: white;
 }
 </style>
