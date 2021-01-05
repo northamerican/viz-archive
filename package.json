@@ -6,7 +6,7 @@
   "author": "Chris Bitsakis",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "jxa": "^2.0.3",
     "osa2": "^0.2.3",
     "youtube-dl": "^1.12.2"
