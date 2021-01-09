@@ -14,7 +14,7 @@
 
 <script>
 import fs from 'fs'
-import { remote } from 'electron'
+import { systemPreferences } from 'electron'
 import axios from 'axios'
 import runJxa from 'run-jxa'
 import youtubedl from 'youtube-dl'
@@ -22,12 +22,16 @@ import youtubedl from 'youtube-dl'
 // import SystemInformation from '@/components/SystemInformation.vue'
 
 // Prompt to access System Preferences by setting the prompt "true"
-const isTrusted = remote.systemPreferences.isTrustedAccessibilityClient(true)
+console.log({ systemPreferences })
+const isTrusted = systemPreferences.isTrustedAccessibilityClient(true)
 
-console.log('Does the client have accessibility permissions?', isTrusted)
+// console.log('Does the client have accessibility permissions?', isTrusted)
 
+// https://console.cloud.google.com/apis/api/youtube.googleapis.com/credentials?project=compluter-viz-299905
+// quota exceeded:
+// https://stackoverflow.com/questions/63211098/
 const youtubeSearchApiUrl = 'https://www.googleapis.com/youtube/v3/search'
-const youtubeApiKey = ''
+const youtubeApiKey = 'AIzaSyDbri-wOFed1-1capJC7dUyH2k9GS0lBdc'
 
 export default {
   components: {
@@ -59,13 +63,21 @@ export default {
     // await this.getTrackInfo()
     // this.getVideoUrl(this.trackInfo)
     setInterval(this.getTrackInfo, 200)
+
+    console.log({ systemPreferences }, this.$electron)
+  },
+  beforeDestroy () {
+    // clearInterval(this.getTrackInfoInterval)
   },
   methods: {
-    openURL (url) {
-      remote.shell.openExternal(url)
-    },
+    // openURL (url) {
+    //   remote.shell.openExternal(url)
+    // },
 
     async getTrackInfo () {
+      // ! if 'undefined undefined' or falsy, try Spotify
+      // also check for iTunes / Music initially. or mac os version
+
       this.trackInfo = await runJxa(`
         const Music = Application('Music')
 
@@ -121,6 +133,17 @@ export default {
       })
 
       video.pipe(fs.createWriteStream('viz.mp4'))
+    },
+
+    playheadSync () {
+      // If audio track is shorter than the video,
+      // pause the audio track, allowing it to 'catch up' to the video.
+
+      // If the audio track is longer, skip ahead n seconds?
+
+      // ! playhead positioned a few seconds ahead,
+      // so that when next track starts, viz can fetch the next video
+      // ahead of time, detect that the current one is about to end
     }
   }
 }
